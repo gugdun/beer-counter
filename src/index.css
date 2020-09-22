@@ -1,0 +1,96 @@
+@font-face {
+    font-family: 'Roboto Thin';
+    src: url('roboto/Roboto-Thin.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Light';
+    src: url('roboto/Roboto-Light.ttf') format('truetype');
+}
+
+@font-face {
+    font-family: 'Roboto Regular';
+    src: url('roboto/Roboto-Regular.ttf') format('truetype');
+}
+
+
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+	background: linear-gradient(-45deg, #ee7752, #e73c7e, #23a6d5, #23d5ab);
+	background-size: 10000% 10000%;
+    animation: gradient 15s ease infinite;
+    overflow-x: hidden;
+    overflow-y: hidden;
+}
+
+@keyframes gradient {
+	0% {
+		background-position: 0% 50%;
+	}
+	50% {
+		background-position: 100% 50%;
+	}
+	100% {
+		background-position: 0% 50%;
+	}
+}
+
+p {
+    margin: 16px 16px;
+    color: #efefef;
+    font-family: 'Roboto Light';
+    font-size: 5vmax;
+}
+
+input {
+    margin: 16px 16px;
+    padding: 4px 16px;
+    color: #1f1f1f;
+    background-color: #efefef;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Roboto Thin';
+    font-size: 3vmax;
+}
+
+button {
+    padding: 4px 16px;
+    color: #efefef;
+    background-color: #2f2f2f;
+    border: none;
+    border-radius: 4px;
+    font-family: 'Roboto Thin';
+    font-size: 3vmax;
+    transition: all 0.1s;
+}
+
+button:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+button:hover {
+    transform: scale(1.05);
+}
+
+button:active {
+    transform: scale(0.95);
+    background-color: #1f1f1f;
+}
+
+.container {
+    height: 100vh;
+    position: relative;
+}
+
+.center {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+}
