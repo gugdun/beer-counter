@@ -27,19 +27,17 @@ function calcDays(datePast, dateNow) {
     let millisPast = datePast.valueOf().toString();
     let millisNow  = dateNow.valueOf().toString();
 
-    // Calculate days months and years from last date
-    // Its tricky so left it as is for now
+    // Calculate days weeks and years from last date
     let days   = Math.floor((millisNow - millisPast) / (1000 * 60 * 60 * 24));
-    let months = Math.floor(days / 30);
-    let years  = Math.floor(months / 12);
-    days %= 30;
-    months %= 12;
+    let weeks  = Math.floor((days % 365) / 7);
+    let years  = Math.floor(days / 365);
+    days = (days % 365) % 7;
 
     // Build date string
     daysText.innerHTML = '';
     if (years > 0) daysText.innerHTML += years.toString() + ' ' + yearsString(years) + ' ';
-    if (months > 0) daysText.innerHTML += months.toString() + ' ' + monthsString(months) + ' ';
-    if ((years == 0 && months == 0) || days > 0) daysText.innerHTML += days.toString() + ' ' + daysString(days);
+    if (weeks > 0) daysText.innerHTML += weeks.toString() + ' ' + weeksString(weeks) + ' ';
+    if ((years == 0 && weeks == 0) || days > 0) daysText.innerHTML += days.toString() + ' ' + daysString(days);
     daysText.innerHTML += ' без пыва';
 }
 
@@ -58,18 +56,18 @@ function yearsString(years) {
     }
 }
 
-function monthsString(months) {
+function weeksString(weeks) {
     // Returns appropriate string to concat with months count
-    let digit = months % 10;
+    let digit = weeks % 10;
     switch (digit) {
         case 1:
-            if (months < 10 || months > 19)
-                return 'месяц';
+            if (weeks < 10 || weeks > 19)
+                return 'неделя';
         case 2: case 3: case 4:
-            if (months < 10 || months > 19)
-                return 'месяца';
+            if (weeks < 10 || weeks > 19)
+                return 'недели';
         default:
-            return 'месяцев';
+            return 'недель';
     }
 }
 

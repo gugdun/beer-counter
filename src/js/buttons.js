@@ -1,5 +1,3 @@
-const { remote } = require('electron')
-
 // Titlebar buttons
 let minBtn   = document.getElementById('min-btn');
 let maxBtn   = document.getElementById('max-btn');
