@@ -1,7 +1,7 @@
 {
   "name": "beer-counter",
   "productName": "Beer counter",
-  "version": "1.1.0",
+  "version": "1.1.1",
   "description": "Counts days without drinking beer.",
   "main": "src/index.js",
   "scripts": {

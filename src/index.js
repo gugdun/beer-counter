@@ -15,7 +15,8 @@ const createWindow = () => {
         frame: false,
         title: app.getName(),
         webPreferences: {
-            nodeIntegration: true
+            nodeIntegration: true,
+            enableRemoteModule: true
         }
     });
 
@@ -25,11 +26,11 @@ const createWindow = () => {
     // Hide menubar
     mainWindow.setMenuBarVisibility(false);
 
-    // Open the DevTools.
-    // mainWindow.webContents.openDevTools();
-
     // Show window only when page loaded
     mainWindow.once('ready-to-show', () => { mainWindow.show(); })
+
+    // Open the DevTools.
+    // mainWindow.webContents.openDevTools();
 };
 
 // This method will be called when Electron has finished
