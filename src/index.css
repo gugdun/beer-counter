@@ -50,6 +50,7 @@ body {
     color: var(--text);
     font-family: 'Roboto Light';
     font-size: 4vmax;
+    -webkit-user-select: none;
 }
 
 .date {
@@ -115,10 +116,14 @@ body {
 }
 
 .title {
+    position: absolute;
     padding: 4px;
     color: var(--title);
     font-family: 'Roboto Light';
     font-size: 14px;
+    left: 50%;
+    transform: translateX(-50%);
+    -webkit-user-select: none;
 }
 
 .line-container {
