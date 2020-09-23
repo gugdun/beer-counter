@@ -46,14 +46,14 @@ body {
 }
 
 .text {
-    margin: 2vmin 0px;
+    margin: 2vmin 1vmin;
     color: var(--text);
     font-family: 'Roboto Light';
     font-size: 4vmax;
 }
 
 .date {
-    margin: 2vmin 0px;
+    margin: 2vmin 1vmin;
     padding: 4px 16px;
     color: var(--dark);
     background-color: var(--text);
@@ -64,7 +64,7 @@ body {
 }
 
 .btn {
-    margin: 2vmin 0px;
+    margin: 2vmin 1vmin;
     padding: 4px 16px;
     color: var(--text);
     background-color: var(--main);
@@ -103,8 +103,19 @@ body {
     text-align: center;
 }
 
+.confirm-box {
+    width: 36vw;
+    height: 28vh;
+    background-color: var(--text);
+    border-radius: 4px;
+}
+
+.confirm-text {
+    color: var(--main);
+}
+
 .title {
-    padding: 4px 0px;
+    padding: 4px;
     color: var(--title);
     font-family: 'Roboto Light';
     font-size: 14px;

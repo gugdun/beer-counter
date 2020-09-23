@@ -3,6 +3,7 @@ const fs = require('fs');
 const logPath = 'beer-dates.log'
 
 let beerCounter = document.getElementById('beer-counter');
+let confirmBox  = document.getElementById('confirm-box');
 let dayPicker = document.getElementById('day-picker');
 let dateInput = document.getElementById('date-input');
 
@@ -17,18 +18,19 @@ Date.prototype.toDateInputValue = (function() {
 dateInput.value = new Date().toDateInputValue();
 
 // Open date picker if log file doesnt exist
-if (fs.existsSync(logPath)) {
-    dayPicker.hidden   = true;
-    beerCounter.hidden = false;
-} else {
-    dayPicker.hidden   = false;
-    beerCounter.hidden = true;
+if (fs.existsSync(logPath))
+    switchTo('beer-counter');
+else switchTo('day-picker');
+
+function switchTo(id) {
+    // Switches to div with specified id
+    beerCounter.hidden = !(beerCounter.id == id);
+    confirmBox.hidden  = !(confirmBox.id  == id);
+    dayPicker.hidden   = !(dayPicker.id   == id);
 }
 
 function onPickClick() {
     // Save picked date to log file
     fs.appendFile(logPath, '\r\n' + dateInput.value, (err) => { if (err) throw err; });
-    // And switch GUI
-    dayPicker.hidden   = true;
-    beerCounter.hidden = false;
+    switchTo('beer-counter');
 }

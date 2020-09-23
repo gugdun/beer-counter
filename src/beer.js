@@ -4,6 +4,11 @@ let daysText = document.getElementById('days-text');
 timerHandler();
 setInterval(timerHandler, 100);
 
+// Button handlers
+let onBrewClick = () => switchTo('confirm-box');
+let onDeclineClick = () => switchTo('beer-counter');
+let onConfirmClick = () => { switchTo('beer-counter'); saveDate(); };
+
 function timerHandler() {
     fs.readFile(logPath, function (err, data) {
         if (err) {
@@ -72,18 +77,16 @@ function daysString(days) {
     // Returns appropriate string to concat with days count
     let digit = days % 10;
     switch (digit) {
-        case 1:
-            if (days < 10 || days > 19)
+        case 1: if (days < 10 || days > 19)
                 return 'день';
         case 2: case 3: case 4:
-            if (days < 10 || days > 19)
+                if (days < 10 || days > 19)
                 return 'дня';
-        default:
-            return 'дней';
+        default: return 'дней';
     }
 }
 
-function onBrewClick() {
+function saveDate() {
     if (daysText.innerHTML.substring(0, daysText.innerHTML.indexOf(' ')) > 0) {
         // Append current date to log file
         dateNow = new Date();
