@@ -1,3 +1,10 @@
+:root {
+    --main: #2f2f2f;
+    --dark: #1f1f1f;
+    --text: #efefef;
+    --title: #8f8f8f;
+}
+
 @font-face {
     font-family: 'Roboto Thin';
     src: url('roboto/Roboto-Thin.ttf') format('truetype');
@@ -12,7 +19,6 @@
     font-family: 'Roboto Regular';
     src: url('roboto/Roboto-Regular.ttf') format('truetype');
 }
-
 
 * {
     margin: 0;
@@ -39,47 +45,49 @@ body {
 	}
 }
 
-p {
-    margin: 16px 16px;
-    color: #efefef;
+.text {
+    margin: 2vmin 0px;
+    color: var(--text);
     font-family: 'Roboto Light';
-    font-size: 5vmax;
+    font-size: 4vmax;
 }
 
-input {
-    margin: 16px 16px;
+.date {
+    margin: 2vmin 0px;
     padding: 4px 16px;
-    color: #1f1f1f;
-    background-color: #efefef;
+    color: var(--dark);
+    background-color: var(--text);
     border: none;
     border-radius: 4px;
     font-family: 'Roboto Thin';
     font-size: 3vmax;
 }
 
-button {
+.btn {
+    margin: 2vmin 0px;
     padding: 4px 16px;
-    color: #efefef;
-    background-color: #2f2f2f;
+    color: var(--text);
+    background-color: var(--main);
     border: none;
     border-radius: 4px;
     font-family: 'Roboto Thin';
     font-size: 3vmax;
     transition: all 0.1s;
+    -webkit-app-region: no-drag;
 }
 
-button:focus {
+.btn:focus {
     outline: none;
     box-shadow: none;
 }
 
-button:hover {
+.btn:hover {
     transform: scale(1.05);
 }
 
-button:active {
+.btn:active {
     transform: scale(0.95);
-    background-color: #1f1f1f;
+    background-color: var(--dark);
 }
 
 .container {
@@ -93,4 +101,46 @@ button:active {
     left: 50%;
     transform: translate(-50%, -50%);
     text-align: center;
+}
+
+.title {
+    padding: 4px 0px;
+    color: var(--title);
+    font-family: 'Roboto Light';
+    font-size: 14px;
+}
+
+.line-container {
+    display: flex;
+    width: 100vw;
+    height: 24px;
+    background-color: var(--main);
+}
+
+.titlebar {
+    width: 100%;
+    text-align: center;
+    -webkit-user-select: none;
+    -webkit-app-region: drag;
+}
+
+.titlebar-btn {
+    float: right;
+    width: 24px;
+    border: none;
+    background-color: var(--main);
+    background-image: url('img/cross.png');
+    background-repeat: no-repeat;
+    background-position: 8px 8px;
+    transition: all 0.1s;
+}
+
+.titlebar-btn:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.titlebar-btn:active {
+    transform: scale(0.95);
+    background-color: var(--dark);
 }

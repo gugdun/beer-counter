@@ -2,12 +2,9 @@ const fs = require('fs');
 
 const logPath = 'beer-dates.log'
 
-let dayPicker    = document.getElementById('day-picker');
-let beerCounter  = document.getElementById('beer-counter');
-let dateInput    = document.getElementById('date-input');
-
-let pickBtn      = document.getElementById('pick-btn');
-pickBtn.onclick  = onPickClick;
+let beerCounter = document.getElementById('beer-counter');
+let dayPicker = document.getElementById('day-picker');
+let dateInput = document.getElementById('date-input');
 
 // Converts date to date picker format
 Date.prototype.toDateInputValue = (function() {

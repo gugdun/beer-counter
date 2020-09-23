@@ -6,19 +6,27 @@
     </head>
     <body>
         <div class='container'>
+            <div class='line-container'>
+                <div class='titlebar'>
+                    <p class='title'>Beer counter</p>
+                </div>
+                <button class='titlebar-btn' id='close-btn'></button>
+            </div>
             <div class='center'>
                 <div id='day-picker'>
-                    <input type='date' id='date-input'></br>
-                    <button id='pick-btn'>Смотрим</button>
+                    <p class='text'>Когда пил пыво?</p>
+                    <input class='date' type='date' id='date-input'></br>
+                    <button class='btn' id='pick-btn'>Смотрим</button>
                 </div>
                 <div id='beer-counter'>
-                    <p id='days-text'>1 дней без пыва</p>
-                    <button id='brew-btn'>Бахнуть пивка</button>
+                    <p class='text' id='days-text'>1 дней без пыва</p>
+                    <button class='btn' id='brew-btn'>Бахнуть пивка</button>
                 </div>
             </div>
         </div>
 
         <script src='picker.js'></script>
         <script src='beer.js'></script>
+        <script src='buttons.js'></script>
     </body>
 </html>

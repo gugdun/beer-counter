@@ -12,6 +12,7 @@ const createWindow = () => {
         width: 800,
         height: 450,
         show: false,
+        frame: false,
         title: app.getName(),
         webPreferences: {
             nodeIntegration: true

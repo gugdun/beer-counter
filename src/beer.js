@@ -1,7 +1,4 @@
 let daysText = document.getElementById('days-text');
-let brewBtn  = document.getElementById('brew-btn');
-
-brewBtn.onclick = onBrewClick;
 
 // Update days every second
 timerHandler();
