@@ -1,36 +1,39 @@
 const { remote } = require('electron');
 
-const speed = 3000;
-const resolution = 100;
+const PIXI = require('pixi.js');
 
-let canvas  = document.createElement('canvas');
-let context = canvas.getContext('2d');
+const app = new PIXI.Application({ antialias: true });
 
-canvas.width = canvas.height = resolution;
+let canvas = document.getElementById('container').appendChild(app.view);
+canvas.style.position = 'absolute';
+canvas.style.left = '0';
+canvas.style.right = '0';
+canvas.style.zIndex = '-1';
 
-let t = 0;
-let lastRender = Date.now();
+const graphics = new PIXI.Graphics();
+app.stage.addChild(graphics);
 
-function render() {
-    let x = Math.cos(t) * resolution;
-    let y = Math.sin(t) * resolution;
+let win = remote.getCurrentWindow();
+let resize = () => { app.renderer.resize(win.getBounds().width, win.getBounds().height); }
+win.on('resize', resize);
+resize();
 
-    let grad = context.createLinearGradient(x, y, -x, -y);
+let speed = 15;
+let fallSpeed = 7;
 
-    grad.addColorStop(0.0, '#ee7752');
-    grad.addColorStop(0.5, '#e73c7e');
-    grad.addColorStop(1.0, '#8356b5');
-    
-    context.fillStyle = grad;
-    context.fillRect(0, 0, resolution, resolution);
+app.ticker.add((deltaTime) => {
+    let cos = Math.cos(graphics.y / app.screen.height * speed);
 
-    document.body.style.background = 'url(' + canvas.toDataURL() + ')';
-    document.body.style.backgroundSize = '100vmax';
+    graphics.clear();
+    graphics.lineStyle(0);
+    if (cos < 0) graphics.beginFill(0xffffff, Math.abs(cos) + 0.1);
+    else graphics.beginFill(0xf0509f, cos + 0.1);
+    graphics.drawCircle(0, 0, 50);
+    graphics.endFill();
 
-    t += (Date.now() - lastRender) / speed;
-    lastRender = Date.now();
-
-    requestAnimationFrame(render);
-};
-
-render();
+    graphics.x = app.screen.width / 2;
+    graphics.y += fallSpeed * deltaTime;
+    graphics.width = Math.abs(cos) * 100;
+    graphics.rotation += speed * deltaTime;
+    if (graphics.y > app.screen.height) { graphics.y = 0; }
+});

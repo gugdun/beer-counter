@@ -60,6 +60,7 @@ body {
     font-size: 3vmax;
     transition: all 0.1s;
     -webkit-app-region: no-drag;
+    -webkit-user-select: none;
 }
 
 .btn:focus {

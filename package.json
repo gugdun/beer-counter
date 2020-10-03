@@ -1,7 +1,7 @@
 {
   "name": "beer-counter",
   "productName": "Beer counter",
-  "version": "1.2.0",
+  "version": "2.0.0",
   "description": "Counts days without drinking beer.",
   "main": "src/index.js",
   "scripts": {
@@ -47,7 +47,8 @@
     }
   },
   "dependencies": {
-    "electron-squirrel-startup": "^1.0.0"
+    "electron-squirrel-startup": "^1.0.0",
+    "pixi.js": "^5.3.3"
   },
   "devDependencies": {
     "@electron-forge/cli": "^6.0.0-beta.53",
