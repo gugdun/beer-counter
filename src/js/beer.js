@@ -5,7 +5,7 @@ timerHandler();
 setInterval(timerHandler, 100);
 
 // Button handlers
-let onBrewClick = () => switchTo('confirm-box');
+let onBrewClick    = () => switchTo('confirm-box');
 let onDeclineClick = () => switchTo('beer-counter');
 let onConfirmClick = () => { switchTo('beer-counter'); saveDate(); };
 

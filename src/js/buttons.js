@@ -5,8 +5,8 @@ let closeBtn = document.getElementById('close-btn');
 closeBtn.onclick = () => remote.getCurrentWindow().close();
 minBtn.onclick   = () => remote.getCurrentWindow().minimize();
 maxBtn.onclick   = () => {
-    if (remote.getCurrentWindow().isMaximized())
-        remote.getCurrentWindow().unmaximize();
+    if  (remote.getCurrentWindow().isMaximized())
+         remote.getCurrentWindow().unmaximize();
     else remote.getCurrentWindow().maximize();
 };
 
