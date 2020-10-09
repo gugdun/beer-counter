@@ -1,13 +1,13 @@
 {
   "name": "beer-counter",
   "productName": "Beer counter",
-  "version": "2.0.0",
+  "version": "2.0.1",
   "description": "Counts days without drinking beer.",
   "main": "src/index.js",
   "scripts": {
     "start": "electron-forge start",
     "package": "electron-forge package",
-    "make": "electron-forge make",
+    "make": "electron-forge make --arch ia32 && electron-forge make --arch x64",
     "publish": "electron-forge publish",
     "lint": "echo \"No linting configured\""
   },
@@ -26,7 +26,7 @@
         {
           "name": "@electron-forge/maker-squirrel",
           "config": {
-            "name": "beer_counter"
+            "name": "beer-counter"
           }
         },
         {

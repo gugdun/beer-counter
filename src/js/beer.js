@@ -1,13 +1,13 @@
 let daysText = document.getElementById('days-text');
 
-// Update days every second
+// Regular day count updates
 timerHandler();
 setInterval(timerHandler, 100);
 
 // Button handlers
 let onBrewClick    = () => switchTo('confirm-box');
 let onDeclineClick = () => switchTo('beer-counter');
-let onConfirmClick = () => { switchTo('beer-counter'); saveDate(); };
+let onConfirmClick = () => { switchTo('beer-counter'); saveDate(); emitConfetti(); };
 
 function timerHandler() {
     fs.readFile(logPath, function (err, data) {
